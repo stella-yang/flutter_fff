@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'onlinefriends_widget.dart';
+import 'filler_widget.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class Home extends StatefulWidget {
@@ -12,17 +12,31 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   int _currentIndex = 0;
   final List<Widget> _children = [
-    OnlineFriendsWidget(Colors.white),
-    OnlineFriendsWidget(Colors.green),
-    OnlineFriendsWidget(Colors.blue),
+    FillerWidget(Colors.white),
+    FillerWidget(Colors.green),
+    FillerWidget(Colors.blue),
+  ];
+  final List<String> _titles = [
+    "Incoming Requests",
+    "Online Friends",
+    "Outgoing Requests",
   ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color(0xffFFF5E1),
       appBar: AppBar(
-        title: Text('Free For Food?'),
+        title: Text(
+          _titles[_currentIndex],
+          style: TextStyle(
+            color: Colors.black,
+          ),
+          ),
+        backgroundColor: Color(0xffFFF5E1),
+        elevation: 0.0,
+        iconTheme: new IconThemeData(color: Colors.black),
       ),
-      drawer: Drawer(
+      endDrawer: Drawer(
         // Add a ListView to the drawer. This ensures the user can scroll
         // through the options in the drawer if there isn't enough vertical
         // space to fit everything.
